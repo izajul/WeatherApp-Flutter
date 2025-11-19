@@ -1,16 +1,16 @@
-# weather_app_flutter
+# Weather App Flutter
 
-A new Flutter project.
+A new Flutter project to show Current, Hourly & Daily Weather forecast from Tomorrow Weather API.
 
-## Getting Started
+[APKLink-Google Drive](https://drive.google.com/file/d/1-47x1I9hstOsb05lwF87xIMKYODxBJoR/view?usp=sharing)
 
-This project is a starting point for a Flutter application.
+[Demo Video](https://drive.google.com/file/d/1NlOW-o10NhsLsF0ioRKW7TtyhliuzZb7/view?usp=sharing)
 
-A few resources to get you started if this is your first Flutter project:
+Splash Screen:
+![Screenshot_20251119_220020.jpg](Screenshot_20251119_220020.jpg)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+HomeScreen 1:
+![Screenshot_20251119_220011.jpg](Screenshot_20251119_220011.jpg)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Home Screen 2:
+![Screenshot_20251119_220015.jpg](Screenshot_20251119_220015.jpg)
