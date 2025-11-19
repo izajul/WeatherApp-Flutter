@@ -5,6 +5,7 @@ import 'package:weather_app_flutter/domain/entities/weather_entity.dart';
 import 'package:weather_app_flutter/presentation/controllers/locationController.dart';
 import 'package:weather_app_flutter/presentation/widgets/app_card.dart';
 import 'package:weather_app_flutter/presentation/widgets/base.widget.dart';
+import 'package:weather_app_flutter/presentation/widgets/weather_icon.widget.dart';
 
 import '../../core/utils/date_format_fun.dart';
 import '../widgets/days_forecast.widget.dart';
@@ -86,7 +87,12 @@ class HomePage extends AppStateLessWidget {
                               ),
 
                               /// weather condition icon
-                              Icon(Icons.cloud, size: 48),
+                              // Icon(Icons.cloud, size: 48),
+                              WeatherIconWidget(
+                                weatherStatusCode: data?.weatherStatus ?? "",
+                                height: 48,
+                                width: 48,
+                              ),
                             ],
                           ),
                           Text(

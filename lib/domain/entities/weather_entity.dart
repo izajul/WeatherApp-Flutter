@@ -40,4 +40,7 @@ class WeatherEntity {
   String? get uvIndexText =>
       mepHealthConcern[timelines?.minutely?.firstOrNull?.values?.uvHealthConcern
           ?.toString()];
+
+  String? get weatherStatus =>
+      timelines?.minutely?.firstOrNull?.values?.weatherCode?.toString();
 }

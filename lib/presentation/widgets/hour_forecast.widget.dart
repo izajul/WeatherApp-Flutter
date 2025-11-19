@@ -5,6 +5,7 @@ import 'package:weather_app_flutter/core/utils/date_format_fun.dart';
 import 'package:weather_app_flutter/data/models/WeatherResponseModel.dart';
 import 'package:weather_app_flutter/presentation/widgets/app_card.dart';
 import 'package:weather_app_flutter/presentation/widgets/base.widget.dart';
+import 'package:weather_app_flutter/presentation/widgets/weather_icon.widget.dart';
 
 class HourForecastWidget extends AppStateLessWidget {
   const HourForecastWidget({super.key, this.data});
@@ -12,7 +13,7 @@ class HourForecastWidget extends AppStateLessWidget {
   final List<HourTimelyData>? data;
 
   String get getHighToLow {
-    if (data == null && data!.isEmpty) return "----";
+    if (data == null && data?.isEmpty == true) return "----";
     final tempList = data?.map((d) => d.values?.temperature).toList();
     tempList?.sort();
     final high = tempList?.last;
@@ -60,8 +61,14 @@ class HourForecastWidget extends AppStateLessWidget {
                           ).toLowerCase(),
                         ),
 
-                        // temperature status icon
-                        Icon(Icons.sunny),
+                        /// temperature status icon
+                        // Icon(Icons.sunny),
+                        WeatherIconWidget(
+                          weatherStatusCode:
+                              item.values?.weatherCode?.toString() ?? "",
+                          height: 24,
+                          width: 24,
+                        ),
 
                         /// temperature
                         Text(

@@ -7,6 +7,7 @@ import 'package:weather_app_flutter/core/utils/date_format_fun.dart';
 import 'package:weather_app_flutter/data/models/WeatherResponseModel.dart';
 import 'package:weather_app_flutter/presentation/widgets/app_card.dart';
 import 'package:weather_app_flutter/presentation/widgets/base.widget.dart';
+import 'package:weather_app_flutter/presentation/widgets/weather_icon.widget.dart';
 
 class DaysForecastWidget extends AppStateLessWidget {
   const DaysForecastWidget({super.key, this.data});
@@ -48,9 +49,21 @@ class DaysForecastWidget extends AppStateLessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.sunny, size: 24),
+                      // Icon(Icons.sunny, size: 24),
+                      WeatherIconWidget(
+                        weatherStatusCode:
+                            item.values?.weatherCodeMin?.toString() ?? "",
+                        height: 24,
+                        width: 24,
+                      ),
                       SizedBox(width: 10),
-                      Icon(Icons.sunny_snowing, size: 24),
+                      // Icon(Icons.sunny_snowing, size: 24),
+                      WeatherIconWidget(
+                        weatherStatusCode:
+                            item.values?.weatherCodeMax?.toString() ?? "",
+                        height: 24,
+                        width: 24,
+                      ),
                     ],
                   ),
                 ),
