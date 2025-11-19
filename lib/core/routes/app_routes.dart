@@ -1,6 +1,6 @@
 enum AppRoutes {
   splash("splash"),
-  home("splash");
+  home("home");
 
   final String _name;
 

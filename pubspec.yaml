@@ -19,7 +19,11 @@ dependencies:
 
   get: any
   dio: any
-  location_plus: any
+  lottie: ^3.3.2
+  flutter_secure_storage: ^9.2.4
+  flutter_dotenv: ^6.0.0
+  geolocator: ^14.0.2
+  animations: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +48,8 @@ flutter:
     - assets/icons/svg/
     - assets/images/png/
     - assets/images/svg/
+    - assets/fonts/
+    - assets/lotties/
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
@@ -52,22 +58,22 @@ flutter:
   fonts:
     - family: RobotoRegular
       fonts:
-        - asset: fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
           weight: 400
 
     - family: RobotoMedium
       fonts:
-        - asset: fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
           weight: 500
 
     - family: RobotoSemiBold
       fonts:
-        - asset: fonts/Roboto-SemiBold.ttf
+        - asset: assets/fonts/Roboto-SemiBold.ttf
           weight: 600
 
     - family: RobotoBold
       fonts:
-        - asset: fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
           weight: 700
 
 

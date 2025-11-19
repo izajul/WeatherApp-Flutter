@@ -4,24 +4,24 @@ import '../constants/assets/app_fonts.dart';
 
 TextTheme get textTheme => TextTheme(
   displayLarge: TextStyle(
-    fontSize: 44,
-    fontFamily: AppFont.font.bold,
+    fontSize: 48,
+    fontFamily: AppFont.font.medium,
   ),
   displayMedium: TextStyle(
-    fontSize: 420,
-    fontFamily: AppFont.font.bold,
+    fontSize: 44,
+    fontFamily: AppFont.font.medium,
   ),
   displaySmall: TextStyle(
     fontSize: 40,
-    fontFamily: AppFont.font.bold,
+    fontFamily: AppFont.font.medium,
   ),
   headlineLarge: TextStyle(
     fontSize: 30,
-    fontFamily: AppFont.font.samiBold,
+    fontFamily: AppFont.font.medium,
   ),
   headlineMedium: TextStyle(
     fontSize: 28,
-    fontFamily: AppFont.font.samiBold,
+    fontFamily: AppFont.font.medium,
   ),
   headlineSmall: TextStyle(
     fontSize: 26,

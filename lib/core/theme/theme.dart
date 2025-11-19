@@ -174,12 +174,12 @@ class MaterialAppTheme {
   static ColorScheme darkScheme() {
     return const ColorScheme(
       brightness: Brightness.dark,
-      primary: Color(0xff83d2e4),
+      primary: Color(0xff4e5e8a),
       surfaceTint: Color(0xff83d2e4),
-      onPrimary: Color(0xff00363f),
+      onPrimary: Color(0xff3e4e7c),
       primaryContainer: Color(0xff004e5a),
       onPrimaryContainer: Color(0xffa4eeff),
-      secondary: Color(0xffb2cbd1),
+      secondary: Color(0xff828ba6),
       onSecondary: Color(0xff1c3439),
       secondaryContainer: Color(0xff334a50),
       onSecondaryContainer: Color(0xffcde7ed),
@@ -347,6 +347,10 @@ class MaterialAppTheme {
     ),
     scaffoldBackgroundColor: colorScheme.surface,
     canvasColor: colorScheme.surface,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    )
   );
 
   List<ExtendedColor> get extendedColors => [];
