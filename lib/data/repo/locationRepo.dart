@@ -17,4 +17,8 @@ class LocationReop {
 
     return LocationPermissionModel(isLocationEnabled: true, status: status);
   }
+
+  Future<Position> getCurrentLocation() async {
+    return await Geolocator.getCurrentPosition();
+  }
 }
