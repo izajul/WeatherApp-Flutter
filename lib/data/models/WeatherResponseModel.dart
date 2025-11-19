@@ -375,6 +375,8 @@ class Values {
 class Location {
   double? lat;
   double? lon;
+  String? locality;
+  String? country;
 
   Location({this.lat, this.lon});
 
