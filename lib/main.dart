@@ -6,6 +6,7 @@ import 'package:weather_app_flutter/core/theme/textTheme.dart';
 import 'core/routes/app_routes.dart';
 import 'core/routes/route_pages.dart';
 import 'core/theme/theme.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +17,9 @@ void main() async{
       // statusBarIconBrightness: Brightness.dark, // For light icons on a dark status bar
     ),
   );
+
+  /// loading .env files before run app
+  await dotenv.load(fileName: ".env");
 
   runApp(MyApp());
 }
