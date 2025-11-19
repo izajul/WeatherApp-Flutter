@@ -17,151 +17,368 @@ class WeatherResponseModel {
 }
 
 class Timelines {
-  List<TimelyData>? minutely;
-  List<TimelyData>? hourly;
-  List<TimelyData>? daily;
+  List<MinuteTimelyData>? minutely;
+  List<HourTimelyData>? hourly;
+  List<DailyTimelyData>? daily;
 
   Timelines({this.minutely, this.hourly, this.daily});
 
   Timelines.fromJson(Map<String, dynamic> json) {
     if (json['minutely'] != null) {
-      minutely = <TimelyData>[];
+      minutely = <MinuteTimelyData>[];
       json['minutely'].forEach((v) {
-        minutely!.add(TimelyData.fromJson(v));
+        minutely!.add(MinuteTimelyData.fromJson(v));
       });
     }
     if (json['hourly'] != null) {
-      hourly = <TimelyData>[];
+      hourly = <HourTimelyData>[];
       json['hourly'].forEach((v) {
-        hourly!.add(TimelyData.fromJson(v));
+        hourly!.add(HourTimelyData.fromJson(v));
       });
     }
     if (json['daily'] != null) {
-      daily = <TimelyData>[];
+      daily = <DailyTimelyData>[];
       json['daily'].forEach((v) {
-        daily!.add(TimelyData.fromJson(v));
+        daily!.add(DailyTimelyData.fromJson(v));
       });
     }
   }
 }
 
-class TimelyData {
+class MinuteTimelyData {
   String? time;
-  Values? values;
+  MinutelyForecastValue? values;
 
-  TimelyData({this.time, this.values});
+  MinuteTimelyData({this.time, this.values});
 
-  TimelyData.fromJson(Map<String, dynamic> json) {
+  MinuteTimelyData.fromJson(Map<String, dynamic> json) {
     time = json['time'];
-    values = json['values'] != null ? Values.fromJson(json['values']) : null;
+    values = json['values'] != null
+        ? MinutelyForecastValue.fromJson(json['values'])
+        : null;
   }
 }
 
-class Values {
-  double? altimeterSettingAvg;
-  double? altimeterSettingMax;
-  double? altimeterSettingMin;
-  double? cloudBaseAvg;
-  double? cloudBaseMax;
-  double? cloudBaseMin;
-  double? cloudCeilingAvg;
-  double? cloudCeilingMax;
-  double? cloudCeilingMin;
-  int? cloudCoverAvg;
-  int? cloudCoverMax;
-  int? cloudCoverMin;
-  double? dewPointAvg;
-  double? dewPointMax;
-  double? dewPointMin;
-  double? evapotranspirationAvg;
-  double? evapotranspirationMax;
-  double? evapotranspirationMin;
-  double? evapotranspirationSum;
-  int? freezingRainIntensityAvg;
-  int? freezingRainIntensityMax;
-  int? freezingRainIntensityMin;
-  int? humidityAvg;
-  int? humidityMax;
-  int? humidityMin;
-  int? iceAccumulationAvg;
-  int? iceAccumulationLweAvg;
-  int? iceAccumulationLweMax;
-  int? iceAccumulationLweMin;
-  int? iceAccumulationLweSum;
-  int? iceAccumulationMax;
-  int? iceAccumulationMin;
-  int? iceAccumulationSum;
-  String? moonriseTime;
-  String? moonsetTime;
-  int? precipitationProbabilityAvg;
-  int? precipitationProbabilityMax;
-  int? precipitationProbabilityMin;
-  double? pressureSeaLevelAvg;
-  double? pressureSeaLevelMax;
-  double? pressureSeaLevelMin;
-  double? pressureSurfaceLevelAvg;
-  double? pressureSurfaceLevelMax;
-  double? pressureSurfaceLevelMin;
-  int? rainAccumulationAvg;
-  int? rainAccumulationMax;
-  int? rainAccumulationMin;
-  int? rainAccumulationSum;
-  int? rainIntensityAvg;
-  int? rainIntensityMax;
-  int? rainIntensityMin;
-  int? sleetAccumulationAvg;
-  int? sleetAccumulationLweAvg;
-  int? sleetAccumulationLweMax;
-  int? sleetAccumulationLweMin;
-  int? sleetAccumulationLweSum;
-  int? sleetAccumulationMax;
-  int? sleetAccumulationMin;
-  int? sleetIntensityAvg;
-  int? sleetIntensityMax;
-  int? sleetIntensityMin;
-  int? snowAccumulationAvg;
-  int? snowAccumulationLweAvg;
-  int? snowAccumulationLweMax;
-  int? snowAccumulationLweMin;
-  int? snowAccumulationLweSum;
-  int? snowAccumulationMax;
-  int? snowAccumulationMin;
-  int? snowAccumulationSum;
-  Null? snowDepthAvg;
-  Null? snowDepthMax;
-  Null? snowDepthMin;
-  Null? snowDepthSum;
-  int? snowIntensityAvg;
-  int? snowIntensityMax;
-  int? snowIntensityMin;
-  String? sunriseTime;
-  String? sunsetTime;
-  double? temperatureApparentAvg;
-  double? temperatureApparentMax;
-  double? temperatureApparentMin;
-  double? temperatureAvg;
-  double? temperatureMax;
-  double? temperatureMin;
-  int? uvHealthConcernAvg;
-  int? uvHealthConcernMax;
-  int? uvHealthConcernMin;
-  int? uvIndexAvg;
-  int? uvIndexMax;
-  int? uvIndexMin;
-  double? visibilityAvg;
-  int? visibilityMax;
-  double? visibilityMin;
-  int? weatherCodeMax;
-  int? weatherCodeMin;
-  int? windDirectionAvg;
-  double? windGustAvg;
-  double? windGustMax;
-  double? windGustMin;
-  double? windSpeedAvg;
-  double? windSpeedMax;
-  double? windSpeedMin;
+class HourTimelyData {
+  String? time;
+  HourlyForecastValue? values;
 
-  Values({
+  HourTimelyData({this.time, this.values});
+
+  HourTimelyData.fromJson(Map<String, dynamic> json) {
+    time = json['time'];
+    values = json['values'] != null
+        ? HourlyForecastValue.fromJson(json['values'])
+        : null;
+  }
+}
+
+class DailyTimelyData {
+  String? time;
+  DailyForecastValue? values;
+
+  DailyTimelyData({this.time, this.values});
+
+  DailyTimelyData.fromJson(Map<String, dynamic> json) {
+    time = json['time'];
+    values = json['values'] != null
+        ? DailyForecastValue.fromJson(json['values'])
+        : null;
+  }
+}
+
+class MinutelyForecastValue {
+  dynamic altimeterSetting;
+  dynamic cloudBase;
+  dynamic cloudCeiling;
+  dynamic cloudCover;
+  dynamic dewPoint;
+  dynamic evapotranspiration;
+  dynamic freezingRainIntensity;
+  dynamic humidity;
+  dynamic iceAccumulation;
+  dynamic iceAccumulationLwe;
+  dynamic precipitationProbability;
+  dynamic pressureSeaLevel;
+  dynamic pressureSurfaceLevel;
+  dynamic rainAccumulation;
+  dynamic rainIntensity;
+  dynamic sleetAccumulation;
+  dynamic sleetAccumulationLwe;
+  dynamic sleetIntensity;
+  dynamic snowAccumulation;
+  dynamic snowAccumulationLwe;
+  dynamic snowDepth;
+  dynamic snowIntensity;
+  dynamic temperature;
+  dynamic temperatureApparent;
+  dynamic uvHealthConcern;
+  dynamic uvIndex;
+  dynamic visibility;
+  dynamic weatherCode;
+  dynamic windDirection;
+  dynamic windGust;
+  dynamic windSpeed;
+
+  MinutelyForecastValue({
+    this.altimeterSetting,
+    this.cloudBase,
+    this.cloudCeiling,
+    this.cloudCover,
+    this.dewPoint,
+    this.evapotranspiration,
+    this.freezingRainIntensity,
+    this.humidity,
+    this.iceAccumulation,
+    this.iceAccumulationLwe,
+    this.precipitationProbability,
+    this.pressureSeaLevel,
+    this.pressureSurfaceLevel,
+    this.rainAccumulation,
+    this.rainIntensity,
+    this.sleetAccumulation,
+    this.sleetAccumulationLwe,
+    this.sleetIntensity,
+    this.snowAccumulation,
+    this.snowAccumulationLwe,
+    this.snowDepth,
+    this.snowIntensity,
+    this.temperature,
+    this.temperatureApparent,
+    this.uvHealthConcern,
+    this.uvIndex,
+    this.visibility,
+    this.weatherCode,
+    this.windDirection,
+    this.windGust,
+    this.windSpeed,
+  });
+
+  MinutelyForecastValue.fromJson(Map<String, dynamic> json) {
+    altimeterSetting = json['altimeterSetting'];
+    cloudBase = json['cloudBase'];
+    cloudCeiling = json['cloudCeiling'];
+    cloudCover = json['cloudCover'];
+    dewPoint = json['dewPoint'];
+    evapotranspiration = json['evapotranspiration'];
+    freezingRainIntensity = json['freezingRainIntensity'];
+    humidity = json['humidity'];
+    iceAccumulation = json['iceAccumulation'];
+    iceAccumulationLwe = json['iceAccumulationLwe'];
+    precipitationProbability = json['precipitationProbability'];
+    pressureSeaLevel = json['pressureSeaLevel'];
+    pressureSurfaceLevel = json['pressureSurfaceLevel'];
+    rainAccumulation = json['rainAccumulation'];
+    rainIntensity = json['rainIntensity'];
+    sleetAccumulation = json['sleetAccumulation'];
+    sleetAccumulationLwe = json['sleetAccumulationLwe'];
+    sleetIntensity = json['sleetIntensity'];
+    snowAccumulation = json['snowAccumulation'];
+    snowAccumulationLwe = json['snowAccumulationLwe'];
+    snowDepth = json['snowDepth'];
+    snowIntensity = json['snowIntensity'];
+    temperature = json['temperature'];
+    temperatureApparent = json['temperatureApparent'];
+    uvHealthConcern = json['uvHealthConcern'];
+    uvIndex = json['uvIndex'];
+    visibility = json['visibility'];
+    weatherCode = json['weatherCode'];
+    windDirection = json['windDirection'];
+    windGust = json['windGust'];
+    windSpeed = json['windSpeed'];
+  }
+}
+
+class HourlyForecastValue {
+  dynamic altimeterSetting;
+  dynamic cloudBase;
+  dynamic cloudCeiling;
+  dynamic cloudCover;
+  dynamic dewPoint;
+  dynamic evapotranspiration;
+  dynamic freezingRainIntensity;
+  dynamic humidity;
+  dynamic iceAccumulation;
+  dynamic iceAccumulationLwe;
+  dynamic precipitationProbability;
+  dynamic pressureSeaLevel;
+  dynamic pressureSurfaceLevel;
+  dynamic rainAccumulation;
+  dynamic rainIntensity;
+  dynamic sleetAccumulation;
+  dynamic sleetAccumulationLwe;
+  dynamic sleetIntensity;
+  dynamic snowAccumulation;
+  dynamic snowAccumulationLwe;
+  dynamic snowDepth;
+  dynamic snowIntensity;
+  dynamic temperature;
+  dynamic temperatureApparent;
+  dynamic uvHealthConcern;
+  dynamic uvIndex;
+  dynamic visibility;
+  dynamic weatherCode;
+  dynamic windDirection;
+  dynamic windGust;
+  dynamic windSpeed;
+
+  HourlyForecastValue({
+    this.altimeterSetting,
+    this.cloudBase,
+    this.cloudCeiling,
+    this.cloudCover,
+    this.dewPoint,
+    this.evapotranspiration,
+    this.freezingRainIntensity,
+    this.humidity,
+    this.iceAccumulation,
+    this.iceAccumulationLwe,
+    this.precipitationProbability,
+    this.pressureSeaLevel,
+    this.pressureSurfaceLevel,
+    this.rainAccumulation,
+    this.rainIntensity,
+    this.sleetAccumulation,
+    this.sleetAccumulationLwe,
+    this.sleetIntensity,
+    this.snowAccumulation,
+    this.snowAccumulationLwe,
+    this.snowDepth,
+    this.snowIntensity,
+    this.temperature,
+    this.temperatureApparent,
+    this.uvHealthConcern,
+    this.uvIndex,
+    this.visibility,
+    this.weatherCode,
+    this.windDirection,
+    this.windGust,
+    this.windSpeed,
+  });
+
+  HourlyForecastValue.fromJson(Map<String, dynamic> json) {
+    altimeterSetting = json['altimeterSetting'];
+    cloudBase = json['cloudBase'];
+    cloudCeiling = json['cloudCeiling'];
+    cloudCover = json['cloudCover'];
+    dewPoint = json['dewPoint'];
+    evapotranspiration = json['evapotranspiration'];
+    freezingRainIntensity = json['freezingRainIntensity'];
+    humidity = json['humidity'];
+    iceAccumulation = json['iceAccumulation'];
+    iceAccumulationLwe = json['iceAccumulationLwe'];
+    precipitationProbability = json['precipitationProbability'];
+    pressureSeaLevel = json['pressureSeaLevel'];
+    pressureSurfaceLevel = json['pressureSurfaceLevel'];
+    rainAccumulation = json['rainAccumulation'];
+    rainIntensity = json['rainIntensity'];
+    sleetAccumulation = json['sleetAccumulation'];
+    sleetAccumulationLwe = json['sleetAccumulationLwe'];
+    sleetIntensity = json['sleetIntensity'];
+    snowAccumulation = json['snowAccumulation'];
+    snowAccumulationLwe = json['snowAccumulationLwe'];
+    snowDepth = json['snowDepth'];
+    snowIntensity = json['snowIntensity'];
+    temperature = json['temperature'];
+    temperatureApparent = json['temperatureApparent'];
+    uvHealthConcern = json['uvHealthConcern'];
+    uvIndex = json['uvIndex'];
+    visibility = json['visibility'];
+    weatherCode = json['weatherCode'];
+    windDirection = json['windDirection'];
+    windGust = json['windGust'];
+    windSpeed = json['windSpeed'];
+  }
+}
+
+class DailyForecastValue {
+  dynamic altimeterSettingAvg;
+  dynamic altimeterSettingMax;
+  dynamic altimeterSettingMin;
+  dynamic cloudBaseAvg;
+  dynamic cloudBaseMax;
+  dynamic cloudBaseMin;
+  dynamic cloudCeilingAvg;
+  dynamic cloudCeilingMax;
+  dynamic cloudCeilingMin;
+  dynamic cloudCoverAvg;
+  dynamic cloudCoverMax;
+  dynamic cloudCoverMin;
+  dynamic dewPointAvg;
+  dynamic dewPointMax;
+  dynamic dewPointMin;
+  dynamic evapotranspirationAvg;
+  dynamic evapotranspirationMax;
+  dynamic evapotranspirationMin;
+  dynamic evapotranspirationSum;
+  dynamic freezingRainIntensityAvg;
+  dynamic freezingRainIntensityMax;
+  dynamic freezingRainIntensityMin;
+  dynamic humidityAvg;
+  dynamic humidityMax;
+  dynamic humidityMin;
+  dynamic iceAccumulationAvg;
+  dynamic iceAccumulationLweAvg;
+  dynamic iceAccumulationLweMax;
+  dynamic iceAccumulationLweMin;
+  dynamic iceAccumulationLweSum;
+  dynamic iceAccumulationMax;
+  dynamic iceAccumulationMin;
+  dynamic iceAccumulationSum;
+  dynamic moonriseTime;
+  dynamic moonsetTime;
+  dynamic precipitationProbabilityAvg;
+  dynamic precipitationProbabilityMax;
+  dynamic precipitationProbabilityMin;
+  dynamic pressureSeaLevelAvg;
+  dynamic pressureSeaLevelMax;
+  dynamic pressureSeaLevelMin;
+  dynamic pressureSurfaceLevelAvg;
+  dynamic pressureSurfaceLevelMax;
+  dynamic pressureSurfaceLevelMin;
+  dynamic rainAccumulationAvg;
+  dynamic rainAccumulationMax;
+  dynamic rainAccumulationMin;
+  dynamic rainAccumulationSum;
+  dynamic rainIntensityAvg;
+  dynamic rainIntensityMax;
+  dynamic rainIntensityMin;
+  dynamic sleetIntensityAvg;
+  dynamic sleetIntensityMax;
+  dynamic sleetIntensityMin;
+  dynamic snowAccumulationAvg;
+  dynamic snowAccumulationLweAvg;
+  dynamic snowAccumulationLweMax;
+  dynamic snowAccumulationLweMin;
+  dynamic snowAccumulationLweSum;
+  dynamic snowAccumulationMax;
+  dynamic snowAccumulationMin;
+  dynamic snowAccumulationSum;
+  dynamic snowIntensityAvg;
+  dynamic snowIntensityMax;
+  dynamic snowIntensityMin;
+  dynamic sunriseTime;
+  dynamic sunsetTime;
+  dynamic temperatureApparentAvg;
+  dynamic temperatureApparentMax;
+  dynamic temperatureApparentMin;
+  dynamic temperatureAvg;
+  dynamic temperatureMax;
+  dynamic temperatureMin;
+  dynamic visibilityAvg;
+  dynamic visibilityMax;
+  dynamic visibilityMin;
+  dynamic weatherCodeMax;
+  dynamic weatherCodeMin;
+  dynamic windDirectionAvg;
+  dynamic windGustAvg;
+  dynamic windGustMax;
+  dynamic windGustMin;
+  dynamic windSpeedAvg;
+  dynamic windSpeedMax;
+  dynamic windSpeedMin;
+
+  DailyForecastValue({
     this.altimeterSettingAvg,
     this.altimeterSettingMax,
     this.altimeterSettingMin,
@@ -213,13 +430,6 @@ class Values {
     this.rainIntensityAvg,
     this.rainIntensityMax,
     this.rainIntensityMin,
-    this.sleetAccumulationAvg,
-    this.sleetAccumulationLweAvg,
-    this.sleetAccumulationLweMax,
-    this.sleetAccumulationLweMin,
-    this.sleetAccumulationLweSum,
-    this.sleetAccumulationMax,
-    this.sleetAccumulationMin,
     this.sleetIntensityAvg,
     this.sleetIntensityMax,
     this.sleetIntensityMin,
@@ -231,10 +441,6 @@ class Values {
     this.snowAccumulationMax,
     this.snowAccumulationMin,
     this.snowAccumulationSum,
-    this.snowDepthAvg,
-    this.snowDepthMax,
-    this.snowDepthMin,
-    this.snowDepthSum,
     this.snowIntensityAvg,
     this.snowIntensityMax,
     this.snowIntensityMin,
@@ -246,12 +452,6 @@ class Values {
     this.temperatureAvg,
     this.temperatureMax,
     this.temperatureMin,
-    this.uvHealthConcernAvg,
-    this.uvHealthConcernMax,
-    this.uvHealthConcernMin,
-    this.uvIndexAvg,
-    this.uvIndexMax,
-    this.uvIndexMin,
     this.visibilityAvg,
     this.visibilityMax,
     this.visibilityMin,
@@ -266,7 +466,7 @@ class Values {
     this.windSpeedMin,
   });
 
-  Values.fromJson(Map<String, dynamic> json) {
+  DailyForecastValue.fromJson(Map<String, dynamic> json) {
     altimeterSettingAvg = json['altimeterSettingAvg'];
     altimeterSettingMax = json['altimeterSettingMax'];
     altimeterSettingMin = json['altimeterSettingMin'];
@@ -318,13 +518,6 @@ class Values {
     rainIntensityAvg = json['rainIntensityAvg'];
     rainIntensityMax = json['rainIntensityMax'];
     rainIntensityMin = json['rainIntensityMin'];
-    sleetAccumulationAvg = json['sleetAccumulationAvg'];
-    sleetAccumulationLweAvg = json['sleetAccumulationLweAvg'];
-    sleetAccumulationLweMax = json['sleetAccumulationLweMax'];
-    sleetAccumulationLweMin = json['sleetAccumulationLweMin'];
-    sleetAccumulationLweSum = json['sleetAccumulationLweSum'];
-    sleetAccumulationMax = json['sleetAccumulationMax'];
-    sleetAccumulationMin = json['sleetAccumulationMin'];
     sleetIntensityAvg = json['sleetIntensityAvg'];
     sleetIntensityMax = json['sleetIntensityMax'];
     sleetIntensityMin = json['sleetIntensityMin'];
@@ -336,10 +529,6 @@ class Values {
     snowAccumulationMax = json['snowAccumulationMax'];
     snowAccumulationMin = json['snowAccumulationMin'];
     snowAccumulationSum = json['snowAccumulationSum'];
-    snowDepthAvg = json['snowDepthAvg'];
-    snowDepthMax = json['snowDepthMax'];
-    snowDepthMin = json['snowDepthMin'];
-    snowDepthSum = json['snowDepthSum'];
     snowIntensityAvg = json['snowIntensityAvg'];
     snowIntensityMax = json['snowIntensityMax'];
     snowIntensityMin = json['snowIntensityMin'];
@@ -351,12 +540,6 @@ class Values {
     temperatureAvg = json['temperatureAvg'];
     temperatureMax = json['temperatureMax'];
     temperatureMin = json['temperatureMin'];
-    uvHealthConcernAvg = json['uvHealthConcernAvg'];
-    uvHealthConcernMax = json['uvHealthConcernMax'];
-    uvHealthConcernMin = json['uvHealthConcernMin'];
-    uvIndexAvg = json['uvIndexAvg'];
-    uvIndexMax = json['uvIndexMax'];
-    uvIndexMin = json['uvIndexMin'];
     visibilityAvg = json['visibilityAvg'];
     visibilityMax = json['visibilityMax'];
     visibilityMin = json['visibilityMin'];
@@ -387,8 +570,6 @@ class Location {
 }
 
 extension WeatherEntityExtension on WeatherResponseModel {
-  WeatherEntity get toWeatherEntity => WeatherEntity(
-    timelines: timelines,
-    location: location,
-  );
+  WeatherEntity get toWeatherEntity =>
+      WeatherEntity(timelines: timelines, location: location);
 }

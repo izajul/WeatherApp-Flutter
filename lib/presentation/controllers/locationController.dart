@@ -21,7 +21,9 @@ class LocationController extends GetxController {
     res.onResult((err) {
       isLoadingData.value = false;
       Get.snackbar('Error', err.message);
+      print(err.message);
     }, (data) {
+      print("Weather Loaded: ${data.timelines?.daily?.length}");
       weatherData.value = data;
       weatherData.refresh();
       isLoadingData.value = false;
