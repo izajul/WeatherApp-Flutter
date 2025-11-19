@@ -33,4 +33,11 @@ class WeatherEntity {
           ?.values
           ?.weatherCode
           ?.toString()];
+
+  String? get uvIndex =>
+      allIndex[timelines?.minutely?.firstOrNull?.values?.uvIndex?.toString()];
+
+  String? get uvIndexText =>
+      mepHealthConcern[timelines?.minutely?.firstOrNull?.values?.uvHealthConcern
+          ?.toString()];
 }

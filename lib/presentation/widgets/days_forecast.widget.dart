@@ -24,7 +24,7 @@ class DaysForecastWidget extends AppStateLessWidget {
             child: Row(
               children: [
                 Flexible(
-                  flex: 3,
+                  flex: 4,
                   fit: FlexFit.tight,
                   child: Text(
                     dateFormat(strToDate(item.time ?? ""), format: "EEEE"),
@@ -32,31 +32,31 @@ class DaysForecastWidget extends AppStateLessWidget {
                   ),
                 ),
                 Flexible(
-                  flex: 1,
+                  flex: 2,
                   fit: FlexFit.tight,
                   child: Row(
                     children: [
                       Icon(Icons.water_drop, size: 12),
                       SizedBox(width: 2),
-                      Text("${item.values?.humidityAvg}%"),
+                      Text("${item.values?.rainAccumulationAvg}%"),
                     ],
                   ),
                 ),
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                   fit: FlexFit.tight,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.sunny, size: 24),
-                      SizedBox(width: 14),
+                      SizedBox(width: 10),
                       Icon(Icons.sunny_snowing, size: 24),
                     ],
                   ),
                 ),
 
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                   fit: FlexFit.tight,
                   child: Text(
                     "${item.values?.temperatureMin}° ${item.values?.temperatureMax}°",

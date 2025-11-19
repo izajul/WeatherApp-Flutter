@@ -74,7 +74,8 @@ class HourForecastWidget extends AppStateLessWidget {
                           children: [
                             Icon(Icons.water_drop, size: 12),
                             SizedBox(width: 2),
-                            Text("${item.values?.humidity}%"),
+                            // Text("${item.values?.humidity}%"),
+                            Text("${item.values?.rainAccumulation}%"),
                           ],
                         ),
 

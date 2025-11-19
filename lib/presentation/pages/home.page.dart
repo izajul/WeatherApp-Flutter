@@ -68,11 +68,13 @@ class HomePage extends AppStateLessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "${data?.min}°/${data?.max}°",
+                                    // "${data?.min}°/${data?.max}°",
+                                    "UV index: ${data?.uvIndex}",
                                     style: themeData.textTheme.bodyLarge,
                                   ),
                                   Text(
-                                    "${data?.weatherCondition}",
+                                    "${data?.uvIndexText}",
+                                    // "${data?.weatherCondition}",
                                     style: themeData.textTheme.titleLarge,
                                   ),
                                 ],
