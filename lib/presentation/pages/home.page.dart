@@ -108,10 +108,14 @@ class HomePage extends AppStateLessWidget {
                   ),
 
                   /// hourly forecast
-                  SliverToBoxAdapter(child: HourForecastWidget()),
+                  SliverToBoxAdapter(
+                    child: HourForecastWidget(data: data?.timelines?.hourly),
+                  ),
 
                   /// 10 days forecast
-                  SliverToBoxAdapter(child: DaysForecastWidget()),
+                  SliverToBoxAdapter(
+                    child: DaysForecastWidget(data: data?.timelines?.daily),
+                  ),
 
                   /// Wind & Humidity percentages
                   SliverToBoxAdapter(
