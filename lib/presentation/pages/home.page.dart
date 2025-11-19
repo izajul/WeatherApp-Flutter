@@ -24,7 +24,7 @@ class HomePage extends AppStateLessWidget {
         color: themeData.colorScheme.primary,
         child: RefreshIndicator(
           onRefresh: () async {
-            print("onRefresh");
+            controller.geWeatherData();
           },
           child: Obx(() {
             final isLoading = controller.isLoadingData.value;
@@ -200,12 +200,6 @@ class _MyHeaderDelegate extends SliverPersistentHeaderDelegate {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Flexible(
-            child: Text(
-              "${data?.location?.locality}",
-              style: themeData.textTheme.titleLarge,
-            ),
-          ),
           Flexible(
             child: Text(
               "${data?.min}°/${data?.max}° Feels like ${data?.currentTempFeels}°",
